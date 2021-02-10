@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 function CurrentCity({ text }) {
   return (
@@ -7,4 +8,10 @@ function CurrentCity({ text }) {
       </div>
   );
 }
-export default CurrentCity;
+
+function mapStateProps(state) {
+  return {
+    text: state.currentCity,
+  }
+}
+export default connect(mapStateProps, null) (CurrentCity);
